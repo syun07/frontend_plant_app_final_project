@@ -1,33 +1,44 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.open-page {
+	background: url(./images/plants.jpg) no-repeat center center;
+	background-size: cover;
+	width: 101%;
+	height: 101.5vh;
+	justify-content: center;
+	align-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+	position: absolute;
+	top: 10%;
+	font-family: 'Bungee Inline', cursive;
+	font-size: 42px;
+	color: #00601f;
+}
+
+.tagline {
+	position: absolute;
+	top: 12.5%;
+	font-style: italic;
+	color: #00601f;
+}
+
+.open-page-btns {
+	position: absolute;
+	top: 20%;
+}
+
+.ui.inverted.green.button {
+	letter-spacing: 4px;
+	margin-right: 16px;
+}
+
+.ui.green.button {
+	letter-spacing: 4px;
+	margin-left: 16px;
 }
