@@ -21,13 +21,13 @@ class OpeningPage extends Component {
 				<div className='open-page-btns'>
 					<Button 
 						className='ui inverted green button'
-						onClick={() => this.props.clickLogin}>
+						onClick={() => this.props.clickLogin({letter: 'l'})}>
 						LOGIN
 					</Button>
 
 					<Button 
 						className='ui green button'
-						onClick={() => this.props.clickSignUp}>
+						onClick={() => this.props.clickSignUp({letter: 's'})}>
 						SIGN UP
 					</Button>
 				</div>
