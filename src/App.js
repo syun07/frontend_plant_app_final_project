@@ -9,6 +9,16 @@ const LOCALAPI = 'http://localhost:3000'
 
 class App extends Component {
 
+	constructor() {
+		super()
+
+		this.state = {
+			name: '',
+			password: '',
+			loggedIn: false
+		}
+	}
+
 	handleLogin = event => {
 		event.preventDefault();
 		this.getAuthToken({ name: this.state.name, password: this.state.password })
@@ -33,14 +43,24 @@ class App extends Component {
 		}).then(res => res.json())
 	}
 
+	loginSuccess = () => {
+		this.setState({
+			loggedIn: true
+		})
+	}
+
 	render() {
-		const openingPage = <OpeningPage />
+		const openingPage = <OpeningPage loginSuccess={this.loginSuccess}/>
 		const mainContainer = <MainContainer />
-    return (
-			<div className='App'>
-				{openingPage}
-				{/* {mainContainer} */}
-      </div>
+		return (
+			this.state.loggedIn ?
+				<div className='App'>
+					{mainContainer}
+				</div>
+				:
+				<div>
+					{openingPage}}
+			</div>
     );
   }
 }

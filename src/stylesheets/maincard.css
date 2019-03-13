@@ -14,19 +14,17 @@
 }
 
 .plant-container {
-	padding: 1em;
 	display: flex;
 	justify-content: center;
 }
 
 .ui.image {
-	max-height: 230px;
+	height: 50%;
 }
 
 .ui.card {
-	height: 400px;
-	max-width: 230px !important;
-	overflow-y: scroll;
+	height: 440px;
+	width: 210px !important;
 	display: flex;
 	justify-content: center;
 }
@@ -35,10 +33,32 @@
 	width: 0 !important; 
 }
 
-.likes {
-	float: left;
+.ui.card>.content {
+	text-align: center;
 }
 
-.comments {
-	float: right;
+.ui.card>.content>.header {
+	font-size: 15px !important;
+}
+
+.ui.card .meta, .likes, .comments {
+	font-size: 12px;
+}
+
+#watered-date {
+	font-size: 10px;
+}
+
+.ui.card .ui.button {
+	font-size: 12px !important;
+	letter-spacing: 3px;
+	border-radius: 50px;
+}
+
+.ui.violet.button {
+	margin: 5px;
+}
+
+.ui.teal.button {
+	margin: 5px;
 }

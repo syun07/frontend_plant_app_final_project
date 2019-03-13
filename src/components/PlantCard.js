@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import '../stylesheets/maincard.css';
 
 const PlantCard = props => {
@@ -13,10 +13,17 @@ const PlantCard = props => {
 				<Card.Header>Plants Armstrong</Card.Header>
 
 				<Card.Meta>
-					<span className='date'>Aglaonema</span>
+					<span>Aglaonema</span>
+				</Card.Meta>
+				<Button color='violet'>SPECIES INFO</Button>
+				<br />
+				<Button color='olive'>TRACK HEALTH</Button>
+				<br />
+				<Button color='teal'>WATER PLANT</Button>
+				<Card.Meta>
+					<span id='watered-date'>LAST WATERED 3/13/2019</span>
 				</Card.Meta>
 
-				<Card.Description>Aglaonemas are slow growing, attractive, and make excellent foliage plants. They have large, narrow, and glossy oval leaves on short stems.</Card.Description>
 
 				<p className='likes'>
 					<Icon name='heart outline' />
@@ -27,6 +34,7 @@ const PlantCard = props => {
 					5 Comments
 				</p>
 
+				
 			</Card.Content>
 		</Card>
 	)

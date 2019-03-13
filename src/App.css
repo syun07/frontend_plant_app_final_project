@@ -2,7 +2,8 @@
 	background: url(./images/mainbg.jpg) center center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+	align-items: center;
+	width: 100%;
 }
 
 .open-page {
@@ -72,13 +73,14 @@ input {
 	margin-left: -73em;
 }
 
-.ui.container.main-container{
+.ui.container.main-container {
 	background-color: white;
 	border: solid 1px;
 	padding: 1em;
 	margin-top: 5em;
 	margin-bottom: 7em;
-	height: 85vh;
+	height: 90vh;
+	width: 80%;
 	box-sizing: border-box;
 	border-radius: 45px;
 	display: flex;

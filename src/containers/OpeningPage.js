@@ -44,7 +44,7 @@ class OpeningPage extends Component {
 	const loginForm =
 			<div className='login-form-container'>
 				<Form
-					onSubmit={null}>
+					onSubmit={this.props.loginSuccess}>
 					<h1 className='title'>LOGIN</h1>
 					<Form.Field>
 						<input
