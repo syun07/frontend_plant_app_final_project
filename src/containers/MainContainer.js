@@ -11,7 +11,7 @@ class MainContainer extends Component {
 		super(props)
 
 		this.state = {
-			percentage: 60
+			percentage: 68
 		}
 	}
 
@@ -21,7 +21,7 @@ class MainContainer extends Component {
 				<h2 className='greeting'>Hello, Sarah!</h2>
 				<ProgressBar percentage={this.state.percentage} />
 				<h3>LEVEL 5</h3>
-				<p className='points'>40 POINTS UNTIL LEVEL UP</p>
+				<p className='points'>40 POINTS UNTIL LEVEL UP </p>
 				<PlantsContainer />
 			</Container>
 

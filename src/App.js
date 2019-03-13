@@ -6,6 +6,8 @@ import OpeningPage from './containers/OpeningPage';
 import './App.css'
 
 const LOCALAPI = 'http://localhost:3000'
+const PLANTAPI = 'https://trefle.io/api/species'
+const TOKEN = 'token=a1I5V2VCUlh0UHJ0N3MvTG90dU9YQT09'
 
 class App extends Component {
 
@@ -18,6 +20,14 @@ class App extends Component {
 			loggedIn: false
 		}
 	}
+
+	componentDidMount() {
+		fetch(`${LOCALAPI}/plants`)
+			.then(res => res.json())
+			.then(console.log)
+	}
+
+
 
 	handleLogin = event => {
 		event.preventDefault();

@@ -33,8 +33,6 @@ const PlantCard = props => {
 					<Icon name='comment outline' />
 					5 Comments
 				</p>
-
-				
 			</Card.Content>
 		</Card>
 	)
