@@ -18,3 +18,27 @@
 	display: flex;
 	justify-content: center;
 }
+
+.ui.image {
+	max-height: 230px;
+}
+
+.ui.card {
+	height: 400px;
+	max-width: 230px !important;
+	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
+}
+
+::-webkit-scrollbar { 
+	width: 0 !important; 
+}
+
+.likes {
+	float: left;
+}
+
+.comments {
+	float: right;
+}

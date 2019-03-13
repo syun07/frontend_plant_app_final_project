@@ -11,12 +11,18 @@
 	width: 101%;
 	height: 101.5vh;
 	justify-content: center;
-	align-content: center;
+}
+
+.button-page-cont {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 15%;
+	flex-direction: column;
+	align-items: center;
 }
 
 .title {
-	position: absolute;
-	top: 10%;
 	font-family: 'Bungee Inline', cursive;
 	font-size: 42px;
 	color: #00601f;
@@ -24,14 +30,14 @@
 
 .tagline {
 	position: absolute;
-	top: 12.5%;
+	top: 40%;
 	font-style: italic;
 	color: #00601f;
 }
 
 .open-page-btns {
 	position: absolute;
-	top: 20%;
+	top: 140%;
 }
 
 .ui.inverted.green.button {
@@ -42,6 +48,28 @@
 .ui.green.button {
 	letter-spacing: 4px;
 	margin-left: 16px;
+}
+
+.ui.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top: 15%;
+	width: 800px;
+}
+
+input {
+	text-align: center;
+}
+
+.ui.form .title {
+	font-size: 30px;
+}
+
+#back-btn {
+	letter-spacing: 2px;
+	margin-top: 4em;
+	margin-left: -73em;
 }
 
 .ui.container.main-container{
@@ -55,7 +83,6 @@
 	border-radius: 45px;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 }
 
