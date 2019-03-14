@@ -27,7 +27,6 @@ const PlantCard = props => {
 					<span id='watered-date'>LAST WATERED ON {props.plant.water_history.toUpperCase()}</span>
 				</Card.Meta>
 
-
 				<p className='likes'>
 					<Icon name='heart outline' />
 					22 Likes

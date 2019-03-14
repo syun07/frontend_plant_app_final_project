@@ -7,22 +7,29 @@ import { Container, Grid } from 'semantic-ui-react';
 import '../App.css'
 
 class MainContainer extends Component {
-
 	render() {
+
+
+
 		const mainProfile =
 			<div className='profile-info'>
 				<h2 className='greeting'>Hello, {this.props.userData.name}!</h2>
 				<ProgressBar percentage={this.props.percentage} />
 				<h3>LEVEL 5</h3>
-				<p className='points'>40 POINTS UNTIL LEVEL UP</p>	
+				<p className='points'>40 POINTS UNTIL LEVEL UP</p>
 			</div>
+		
+		// let renderPage;
+			
+		const mainPage = 
+			<Container className='main-container'>
+				{ mainProfile }
+				<PlantsContainer userPlants={this.props.userPlants} />
+			</Container>
 
 		return (
 			<Grid className='App'>
-				<Container className='main-container'>
-					{mainProfile}
-					<PlantsContainer userPlants={this.props.userPlants}/>
-				</Container>
+					{mainPage}
 			</Grid>
 		)
 	}
