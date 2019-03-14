@@ -7,6 +7,8 @@ import MainContainer from './containers/MainContainer';
 import OpeningPage from './containers/OpeningPage';
 import './App.css'
 
+import { handleMenuClick } from './actions/allActions'
+
 
 class App extends Component {
 
@@ -16,30 +18,21 @@ class App extends Component {
 		this.state = {
 			name: '',
 			password: '',
-			activeItem: 'home'
 		}
 	}
 
-	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-
 	render() {
-		const { activeItem } = this.state
-
 			const navBar =
 				<Menu pointing>
 					<Menu.Item
 						name='home'
-						active={activeItem === 'home'}
-						onClick={this.handleItemClick} />
+						onClick={(event, name) => this.props.handleMenuClick(event, name)} />
           <Menu.Item
             name='addPlant'
-            active={activeItem === 'addPlant'}
-            onClick={this.handleItemClick} />
+            onClick={this.props.handleMenuClick} />
           <Menu.Item
             name='explorePlants'
-            active={activeItem === 'explorePlants'}
-            onClick={this.handleItemClick} />
+            onClick={this.props.handleMenuClick} />
           <Menu.Menu position='right'>
             <Menu.Item>
               <Input icon='search' placeholder='Search...' />
@@ -64,9 +57,11 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+	console.log(state.activeItem)
 	return ({
-		loginSuccess: state.loginSuccess
+		loginSuccess: state.loginSuccess,
+		activeItem: state.activeItem
 	})
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { handleMenuClick })(App);

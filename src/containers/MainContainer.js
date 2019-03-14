@@ -26,17 +26,22 @@ class MainContainer extends Component {
 				{ mainProfile }
 				<PlantsContainer userPlants={this.props.userPlants} />
 			</Container>
+		
+		const viewPlants =
+			<Container className='main-container'>
+
+			</Container>
 
 		return (
 			<Grid className='App'>
-					{mainPage}
+				{/* {mainPage} */}
+				{viewPlants}
 			</Grid>
 		)
 	}
 }
 
 const mapStateToProps = state => {
-	console.log(state.userPlants)
 	return ({
 		percentage: state.percentage,
 		userData: state.userData,

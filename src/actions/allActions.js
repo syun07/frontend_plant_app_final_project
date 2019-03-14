@@ -22,19 +22,29 @@ export const changeLogin = () => {
 	}
 }
 
+//////////////////////////////////////////////////////////////////////
+
 export const setUserInfo = (data) => {
 	return {
 		type: 'SET_USER_INFO', data
 	}
 }
 
-//////////////////////////////////////////////////////////////////////
-
 export const increaseLevel = () => {
 	return {
 		type: 'INCREASE_LEVEL'
 	}
 }
+
+//////////////////////////////////////////////////////////////////////
+
+export const handleMenuClick = (event, name) => {
+	return {
+		type: 'HANDLE_MENU_CLICK', event, name: event.target.name
+	}
+}
+
+//////////////////////////////////////////////////////////////////////
 
 export const addPlant = plant => {
 	return {

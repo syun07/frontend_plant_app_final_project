@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import '../stylesheets/maincard.css'
 
 import PlantCard from './PlantCard'
@@ -16,9 +16,9 @@ const PlantsContainer = props => {
 	)
 
 	return (
-		<Container className='plant-container' >
+		<Card.Group itemsPerRow={4} className='plant-container' >
 			{mappedPlants}
-		</Container>
+		</Card.Group>
 	)
 }
 

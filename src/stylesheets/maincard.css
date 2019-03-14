@@ -1,7 +1,7 @@
 .progress-bar {
 	position: relative;
-	height: 20px;
-	width: 350px;
+	height: 40px;
+	width: 700px;
 	border-radius: 50px;
 	border: 1px solid #333;
 }
@@ -15,9 +15,7 @@
 
 .ui.container.plant-container {
 	display: flex;
-	/* justify-content: left; */
-	/* flex-flow: row wrap; */
-	/* align-content: flex-end; */
+	flex-flow: row wrap;
 }
 
 .ui.image {
@@ -25,16 +23,15 @@
 }
 
 .ui.card {
-	height: 450px;
+	height: 480px;
 	width: 250px !important;
-	justify-content: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-	margin: 0 !important;
+	margin: 0;
 }
 
 .ui.card>.content {
 	text-align: center;
-}
+} 
 
 .ui.card>.content>.header {
 	font-size: 15px !important;
