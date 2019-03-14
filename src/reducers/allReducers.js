@@ -1,7 +1,9 @@
 let initialState = {
 	form: 'b',
 	loginSuccess: false,
-	percentage: 5
+	percentage: 50,
+	userData: {},
+	userPlants: []
 }
 
 export default (state = initialState, action) => {
@@ -17,7 +19,13 @@ export default (state = initialState, action) => {
 			return {...state, form: 'b'}
 		case 'CHANGE_LOGIN':
 			return { ...state, loginSuccess: true }
+		
+		case 'START_FETCHING_USER_REQUEST':
+			return {...state, }
 
+		case 'SET_USER_INFO':
+			return { ...state, userData: action.data, userPlants: action.data.plants }
+		
 		case 'INCREASE_LEVEL':
 			return { ...state, percentage: state.percentage + 5 }
 			

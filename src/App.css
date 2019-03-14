@@ -4,6 +4,7 @@
   flex-direction: column;
 	align-items: center;
 	width: 100%;
+	height: 100%;
 }
 
 .open-page {
@@ -76,13 +77,17 @@ input {
 .ui.container.main-container {
 	background-color: white;
 	border: solid 1px;
-	padding: 1em;
 	margin-top: 5em;
 	margin-bottom: 7em;
 	height: 90vh;
-	width: 80%;
-	box-sizing: border-box;
+	width: 70%;
 	border-radius: 45px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile-info {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

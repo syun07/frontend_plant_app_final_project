@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clickLogin, clickSignUp, changeLogin, goBack } from '../actions/allActions';
+import { clickLogin, clickSignUp, changeLogin, goBack, setUserInfo } from '../actions/allActions';
 
 import { Grid, Button, Form } from 'semantic-ui-react';
 import '../App.css'
-import { addNewUser, getAuthToken } from '../services/fetch';
-
+import { addNewUser, getAuthToken, getUserInfo } from '../services/fetch';
 
 
 class OpeningPage extends Component {
@@ -39,11 +38,13 @@ class OpeningPage extends Component {
 
 	handleLogin = event => {
 		event.preventDefault();
-		getAuthToken({ name: this.state.name, password: this.state.password }).then(payload => {
-			if (payload.user) {
-				localStorage.setItem("token", payload.token)
-				this.props.changeLogin()
-				// return fetch(`${API}/users/${payload.user.id.toString()}`).then(this.finishLogin)
+		getAuthToken({ name: this.state.name, password: this.state.password })
+			.then(payload => {
+				if (payload.user) {
+					localStorage.setItem("token", payload.token)
+
+					getUserInfo(payload.user.id).then((data) => this.props.setUserInfo(data))
+					this.props.changeLogin()
 			} else {
 				alert("INVALID LOGIN!")
 			}
@@ -167,10 +168,9 @@ class OpeningPage extends Component {
 }
 
 const mapStateToProps = state => {
-	console.log(state)
 	return ({
 		form: state.form
 	})
 }
 
-export default connect(mapStateToProps, { clickLogin, clickSignUp, changeLogin, goBack })(OpeningPage)
+export default connect(mapStateToProps, { clickLogin, clickSignUp, changeLogin, goBack, setUserInfo })(OpeningPage)

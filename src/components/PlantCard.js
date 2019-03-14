@@ -11,20 +11,20 @@ const PlantCard = props => {
 		<Card>
 			<Image
 				className='plant-image'
-				src='https://cdn.shopify.com/s/files/1/0174/7796/products/DSC00914.jpg?v=1545105450' />
+				src={props.plant.image} />
 			<Card.Content>
-				<Card.Header>Plants Armstrong</Card.Header>
+				<Card.Header>{props.plant.name}</Card.Header>
 
 				<Card.Meta>
-					<span>Aglaonema</span>
+					<span>{props.plant.breed}</span>
 				</Card.Meta>
 				<Button color='violet'>SPECIES INFO</Button>
 				<br />
 				<Button color='olive'>TRACK HEALTH</Button>
 				<br />
-				<Button onClick={() => this.props.increaseLevel}color='teal'>WATER PLANT</Button>
+				<Button onClick={() => props.increaseLevel}color='teal'>WATER PLANT</Button>
 				<Card.Meta>
-					<span id='watered-date'>LAST WATERED 3/13/2019</span>
+					<span id='watered-date'>LAST WATERED ON {props.plant.water_history.toUpperCase()}</span>
 				</Card.Meta>
 
 

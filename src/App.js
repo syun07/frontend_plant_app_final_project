@@ -5,8 +5,6 @@ import MainContainer from './containers/MainContainer';
 import OpeningPage from './containers/OpeningPage';
 import './App.css'
 
-const PLANTAPI = 'https://trefle.io/api/species'
-const TOKEN = 'token=a1I5V2VCUlh0UHJ0N3MvTG90dU9YQT09'
 
 class App extends Component {
 

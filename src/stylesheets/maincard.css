@@ -13,9 +13,11 @@
 	transition: width .2s ease-in;
 }
 
-.plant-container {
+.ui.container.plant-container {
 	display: flex;
-	justify-content: center;
+	/* justify-content: left; */
+	/* flex-flow: row wrap; */
+	/* align-content: flex-end; */
 }
 
 .ui.image {
@@ -24,9 +26,10 @@
 
 .ui.card {
 	height: 440px;
-	width: 210px !important;
-	display: flex;
+	width: 250px !important;
 	justify-content: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+	margin: 0 !important;
 }
 
 ::-webkit-scrollbar { 
