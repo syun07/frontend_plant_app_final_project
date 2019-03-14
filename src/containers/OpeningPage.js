@@ -1,17 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clickLogin, clickSignUp } from '../actions/login';
+import { clickLogin, clickSignUp, changeLogin, goBack } from '../actions/allActions';
 
 import { Grid, Button, Form } from 'semantic-ui-react';
 import '../App.css'
+import { addNewUser, getAuthToken } from '../services/fetch';
+
+
 
 class OpeningPage extends Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			whichForm: 'b'	
+			name: '',
+			password: '',
+			newName: '',
+			newPassword: ''
 		}
+	}
+
+	handleChange = event => {
+		this.setState({
+			[event.target.name]: event.target.value
+		})	
+	}
+
+	handleSubmit = event => {
+		event.preventDefault();
+		addNewUser(this.state.newName, this.state.newPassword)
+		event.target.reset()
+		this.props.clickLogin()
+		this.setState({
+			newName: '',
+			newPassword: ''
+		})
+	}
+
+	handleLogin = event => {
+		event.preventDefault();
+		getAuthToken({ name: this.state.name, password: this.state.password }).then(payload => {
+			if (payload.user) {
+				localStorage.setItem("token", payload.token)
+				this.props.changeLogin()
+				// return fetch(`${API}/users/${payload.user.id.toString()}`).then(this.finishLogin)
+			} else {
+				alert("INVALID LOGIN!")
+			}
+		})
 	}
 	
 	render() {
@@ -28,13 +64,13 @@ class OpeningPage extends Component {
 			<div className='open-page-btns'>
 				<Button 
 					className='ui inverted green button'
-					onClick={() => this.setState({whichForm: 'l'})}>
+					onClick={this.props.clickLogin}>
 					LOGIN
 				</Button>
 
 				<Button 
 					className='ui green button'
-					onClick={() => this.setState({whichForm: 's'})}>
+					onClick={this.props.clickSignUp}>
 					SIGN UP
 				</Button>
 			</div>
@@ -44,13 +80,13 @@ class OpeningPage extends Component {
 	const loginForm =
 			<div className='login-form-container'>
 				<Form
-					onSubmit={this.props.loginSuccess}>
+					onSubmit={this.handleLogin}>
 					<h1 className='title'>LOGIN</h1>
 					<Form.Field>
 						<input
 							placeholder='NAME'
 							name='name'
-							onChange={null} />
+							onChange={this.handleChange} />
 					</Form.Field>
 				
 					<Form.Field>
@@ -58,10 +94,10 @@ class OpeningPage extends Component {
 							placeholder='PASSWORD'
 							name='password'
 							type='password'
-							onChange={(event) => this.props.handleChange(event)} />
+							onChange={this.handleChange} />
 					</Form.Field>
 
-					<Button
+				<Button
 						color='green'
 						type='submit'>
 						LOGIN
@@ -72,21 +108,21 @@ class OpeningPage extends Component {
 		const signupForm =
 		<div className='signup-form-container'>
 			<Form
-				onSubmit={null}>
+				onSubmit={this.handleSubmit}>
 				<h1 className='title'>SIGN UP</h1>
 				<Form.Field>
 					<input
 						placeholder='NAME'
-						name='name'
-						onChange={null} />
+						name='newName'
+						onChange={this.handleChange} />
 				</Form.Field>
 			
 				<Form.Field>
 					<input
 						placeholder='PASSWORD'
-						name='password'
+						name='newPassword'
 						type='password'
-						onChange={(event) => this.props.handleChange(event)} />
+						onChange={this.handleChange} />
 				</Form.Field>
 
 				<Button
@@ -102,7 +138,7 @@ class OpeningPage extends Component {
 			<Button
 				id='back-btn'
 				className='ui inverted green button'
-				onClick={() => this.setState({whichForm: 'b'})}>
+				onClick={this.props.goBack}>
 				BACK
 			</Button>
 		</div>
@@ -110,13 +146,13 @@ class OpeningPage extends Component {
 		let whichForm;
 		let goBack;
 
-		if (this.state.whichForm === 'b') {
+		if (this.props.form === 'b') {
 			whichForm = buttonPage
 			goBack = null
-		} else if (this.state.whichForm === 'l') {
+		} else if (this.props.form === 'l') {
 			whichForm = loginForm
 			goBack = goBackBtn
-		} else if(this.state.whichForm === 's') {
+		} else if(this.props.form === 's') {
 			whichForm = signupForm
 			goBack = goBackBtn
 		}
@@ -131,9 +167,10 @@ class OpeningPage extends Component {
 }
 
 const mapStateToProps = state => {
+	console.log(state)
 	return ({
-		renderPage: state.page
+		form: state.form
 	})
 }
 
-export default connect(mapStateToProps, { clickLogin, clickSignUp })(OpeningPage)
+export default connect(mapStateToProps, { clickLogin, clickSignUp, changeLogin, goBack })(OpeningPage)

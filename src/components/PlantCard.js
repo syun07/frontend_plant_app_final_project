@@ -3,6 +3,9 @@ import React from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import '../stylesheets/maincard.css';
 
+import { connect } from 'react-redux';
+import { increaseLevel } from '../actions/allActions';
+
 const PlantCard = props => {
 	return (
 		<Card>
@@ -19,7 +22,7 @@ const PlantCard = props => {
 				<br />
 				<Button color='olive'>TRACK HEALTH</Button>
 				<br />
-				<Button color='teal'>WATER PLANT</Button>
+				<Button onClick={() => this.props.increaseLevel}color='teal'>WATER PLANT</Button>
 				<Card.Meta>
 					<span id='watered-date'>LAST WATERED 3/13/2019</span>
 				</Card.Meta>
@@ -38,4 +41,4 @@ const PlantCard = props => {
 	)
 }
 
-export default PlantCard;
+export default connect(null, { increaseLevel })(PlantCard);

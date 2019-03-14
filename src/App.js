@@ -5,7 +5,6 @@ import MainContainer from './containers/MainContainer';
 import OpeningPage from './containers/OpeningPage';
 import './App.css'
 
-const LOCALAPI = 'http://localhost:3000'
 const PLANTAPI = 'https://trefle.io/api/species'
 const TOKEN = 'token=a1I5V2VCUlh0UHJ0N3MvTG90dU9YQT09'
 
@@ -16,54 +15,15 @@ class App extends Component {
 
 		this.state = {
 			name: '',
-			password: '',
-			loggedIn: false
+			password: ''
 		}
 	}
 
-	componentDidMount() {
-		fetch(`${LOCALAPI}/plants`)
-			.then(res => res.json())
-			.then(console.log)
-	}
-
-
-
-	handleLogin = event => {
-		event.preventDefault();
-		this.getAuthToken({ name: this.state.name, password: this.state.password })
-			.then(payload => {
-				if (payload.user) {
-					localStorage.setItem('token', payload.token)
-					this.setState({
-						enterPage: 'p'
-					})
-					return fetch(`${LOCALAPI}/users/${payload.user.id.toString()}`)
-				}
-			})
-	}
-	
-	getAuthToken(loginInfo) {
-		return fetch(`${LOCALAPI}/login`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(loginInfo)
-		}).then(res => res.json())
-	}
-
-	loginSuccess = () => {
-		this.setState({
-			loggedIn: true
-		})
-	}
-
 	render() {
-		const openingPage = <OpeningPage loginSuccess={this.loginSuccess}/>
+		const openingPage = <OpeningPage />
 		const mainContainer = <MainContainer />
 		return (
-			this.state.loggedIn ?
+			this.props.loginSuccess ?
 				<div className='App'>
 					{mainContainer}
 				</div>
@@ -77,7 +37,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
 	return ({
-		renderPage: state.page
+		loginSuccess: state.loginSuccess
 	})
 }
 

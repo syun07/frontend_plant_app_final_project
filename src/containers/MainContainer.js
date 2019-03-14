@@ -3,25 +3,19 @@ import { connect } from 'react-redux';
 import ProgressBar from '../components/ProgressBar'
 import PlantsContainer from '../components/PlantsContainer'
 
+
 import { Container, Grid } from 'semantic-ui-react';
 import '../App.css'
 
 class MainContainer extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			percentage: 68
-		}
-	}
 
 	render() {
 		const mainProfile =
 			<Container className='main-container'>
 				<h2 className='greeting'>Hello, Sarah!</h2>
-				<ProgressBar percentage={this.state.percentage} />
+				<ProgressBar percentage={this.props.percentage} />
 				<h3>LEVEL 5</h3>
-				<p className='points'>40 POINTS UNTIL LEVEL UP </p>
+				<p className='points'>40 POINTS UNTIL LEVEL UP</p>
 				<PlantsContainer />
 			</Container>
 
@@ -35,7 +29,7 @@ class MainContainer extends Component {
 
 const mapStateToProps = state => {
 	return ({
-		
+		percentage: state.percentage		
 	})
 }
 
