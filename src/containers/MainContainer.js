@@ -9,9 +9,6 @@ import '../App.css'
 
 class MainContainer extends Component {
 	render() {
-
-
-
 		const mainProfile =
 			<div className='profile-info'>
 				<h2 className='greeting'>Hello, {this.props.userData.name}!</h2>
@@ -35,8 +32,8 @@ class MainContainer extends Component {
 
 		return (
 			<Grid className='App'>
-				{mainPage}
-				{/* {viewPlants} */}
+				{/* {mainPage} */}
+				{viewPlants}
 			</Grid>
 		)
 	}

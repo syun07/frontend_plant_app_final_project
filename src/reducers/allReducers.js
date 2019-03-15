@@ -29,9 +29,9 @@ export default (state = initialState, action) => {
 			return { ...state, percentage: state.percentage + 5 }
 		
 		
-		case 'HANDLE_MENU_CLICK':
+		// case 'HANDLE_MENU_CLICK':
 			// return { ...state, activeItem: action.event.target.name }
-			return { ...state }
+			// return { ...state }
 		
 		
 			

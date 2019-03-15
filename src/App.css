@@ -4,7 +4,7 @@
   flex-direction: column;
 	align-items: center;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 }
 
 .open-page {
@@ -79,22 +79,20 @@ input {
 
 .ui.menu {
 	position: absolute;
-	top: 2.5%;
+	top: 1%;
 	width:100%;
 }
 
 .ui.container.main-container {
 	overflow-y: scroll;
 	border: solid 1px;
-	margin-top: 8em;
+	margin-top: 5.5em;
 	margin-bottom: 7em;
-	height: 84vh;
-	width: 70%;
+	height: 90vh;
+	width: 90%;
 	border-radius: 45px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: rgba(238, 255, 255);
+	/* align-items: center; */
+	background: rgba(248, 255, 255);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 

@@ -32,11 +32,5 @@ export const getUserInfo = (id) => {
 }
 
 export function getPlants() {
-	return fetch(`${PLANTAPI}?${TOKEN}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	}).then(res => res.json())
-	.then(console.log)
+	return fetch(`${LOCALAPI}/apiplants`).then(res => res.json())
 }

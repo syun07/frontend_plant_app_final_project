@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getPlants } from '../services/fetch'
 
-import { Container, Grid } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 import '../stylesheets/searchPage.css'
 
 class SearchPage extends Component {
@@ -12,11 +12,17 @@ class SearchPage extends Component {
 	}
 
 	componentDidMount() {
-		getPlants()
+		getPlants().then(data => {
+			console.log(data)
+			debugger
+		})
 	}
 	render() {
 		return (
-			<h1>hi</h1>
+			<div className='profile-info'>
+				<h2 className='greeting'>Find Your Plant!</h2>
+				<Input icon='search' placeholder='Search by Name...' />
+			</div>
 		)
 	}
 }

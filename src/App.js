@@ -28,18 +28,13 @@ class App extends Component {
 						name='home'
 						onClick={(event, name) => this.props.handleMenuClick(event, name)} />
           <Menu.Item
-            name='addPlant'
+            name='findPlantByName'
             onClick={this.props.handleMenuClick} />
           <Menu.Item
-            name='explorePlants'
+            name='findPlantByDescription'
             onClick={this.props.handleMenuClick} />
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
-            </Menu.Item>
-          </Menu.Menu>
         </Menu>
-		
+
 		const openingPage = <OpeningPage />
 		const mainContainer = <MainContainer />
 		return (
