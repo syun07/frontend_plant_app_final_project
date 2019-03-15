@@ -1,6 +1,6 @@
 const LOCALAPI = 'http://localhost:3000'
 
-const PLANTAPI = 'https://trefle.io/api/species'
+const PLANTAPI = 'https://trefle.io/api/plants'
 const TOKEN = 'token=a1I5V2VCUlh0UHJ0N3MvTG90dU9YQT09'
 
 export const 	getAuthToken = (loginInfo) => {
@@ -32,5 +32,11 @@ export const getUserInfo = (id) => {
 }
 
 export function getPlants() {
-	return fetch(`${PLANTAPI}?${TOKEN}`)
+	return fetch(`${PLANTAPI}?${TOKEN}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	}).then(res => res.json())
+	.then(console.log)
 }

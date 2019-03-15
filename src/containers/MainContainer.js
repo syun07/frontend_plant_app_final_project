@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProgressBar from '../components/ProgressBar'
 import PlantsContainer from '../components/PlantsContainer'
+import SearchPage from '../components/SearchPage'
 
 import { Container, Grid } from 'semantic-ui-react';
 import '../App.css'
@@ -29,13 +30,13 @@ class MainContainer extends Component {
 		
 		const viewPlants =
 			<Container className='main-container'>
-
+				<SearchPage />
 			</Container>
 
 		return (
 			<Grid className='App'>
-				{/* {mainPage} */}
-				{viewPlants}
+				{mainPage}
+				{/* {viewPlants} */}
 			</Grid>
 		)
 	}
