@@ -41,7 +41,7 @@ class OpeningPage extends Component {
 		getAuthToken({ name: this.state.name, password: this.state.password })
 			.then(payload => {
 				if (payload.user) {
-					localStorage.setItem("token", payload.token)
+					localStorage.setItem("token", payload.jwt)
 
 					getUserInfo(payload.user.id).then((data) => this.props.setUserInfo(data))
 					this.props.changeLogin()

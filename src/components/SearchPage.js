@@ -14,7 +14,7 @@ class SearchPage extends Component {
 	componentDidMount() {
 		getPlants().then(data => {
 			console.log(data)
-			debugger
+			// debugger
 		})
 	}
 	render() {
